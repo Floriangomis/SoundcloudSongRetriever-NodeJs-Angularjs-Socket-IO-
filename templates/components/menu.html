@@ -1,0 +1,34 @@
+<input type="checkbox" class="sidebar-toggle" id="sidebar-toggle"></input>
+
+<div class="menu" style="position: fixed;">
+	<label for="sidebar-toggle" class="sidebar-button">
+		<a id="nav-toggle" ><span></span></a>
+	</label>
+	<a class="icon-left-open title notranslate" href="." itemprop="url">
+		<span itemprop="name">
+			OTPO
+		</span>
+	</a>
+</div>
+
+<aside class="sidebar" ng-controller="RouteController as routeCtrl" >
+	<nav>
+		<a ng-link='/'> Home </a>
+		<a ng-link='mix' > Mix </a>
+	</nav>
+</aside>
+
+<script type="text/javascript">
+	var opts = {
+		navToogle : "#nav-toggle",
+		checkecdNavBar : "#sidebar-toggle"
+	}
+	
+	var navToogle = document.querySelector( opts.navToogle );
+	var checkedBox= document.querySelector( opts.checkecdNavBar );
+	
+	navToogle.addEventListener( "click", function() {
+		this.classList.toggle( "active" );
+		checkedBox.checked = ( checkedBox.checked ? false : true );
+	});
+</script>

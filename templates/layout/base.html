@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="appFront">
+<head>
+	<title> {%- block page_title -%} OTPO {%- endblock -%} </title>
+	{%- block asset_style -%}
+		<link rel="stylesheet" type="text/css" href="./stylesheets/css/home.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	{%- endblock -%}
+
+</head>
+<body>
+
+	{%- block menu -%}
+		{% include "components/menu.html" %}
+	{%- endblock -%}
+	
+	<div class='container' ng-controller="RouteController as routeCtrl">
+
+		<!-- <iframe width="512" height="352" src="http://localhost:8000/present/ukmdxz/embed/" frameborder="0" scrolling="no" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe> -->
+
+		<div ng-viewport></div>
+		
+		<div class="player">
+			<div id="audioPlayer" style="text-align: center;">
+
+				<a id="player-previous" ><i class="fa fa-step-backward fa-2x" style="color: white; cursor: pointer;"></i></a>
+
+				<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+				    <source type="audio/mp3" src="">
+				    Sorry, your browser does not support HTML5 audio.
+				</audio>
+
+				<a id="player-next" ><i class="fa fa-step-forward fa-2x" style="color: white; cursor: pointer;"></i></a>
+
+			</div>
+			<div style="text-align: center;">
+				<input	type="checkbox" id="replay"></input> <b style="color:white;"> Replay </b>
+			</div>
+		</div>
+
+	</div>
+
+	{%- block default_js -%}
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+		<script src="./js/lib/router.es5.min.js"></script>
+		<script src="./js/lib/scrollReveal.js"></script>
+		<script src="./js/lib/socket.io.js"></script>
+
+		<script src="./js/app.js"></script>
+		
+		<script src="./js/service/soundcloudRetriever.js"></script>
+		<script src="./js/service/audio-player.js"></script>
+		<script src="./js/service/playlist.js"></script>
+		
+		<script src="./js/controller/controller.js"></script>
+		
+		<script src="./js/components/home/home.js"></script>
+		<script src="./js/components/mix/mix.js"></script>
+	{%- endblock -%}
+
+</body>
+</html>

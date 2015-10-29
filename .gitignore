@@ -1,0 +1,13 @@
+node_modules
+bower_components
+*.DS_Store
+
+florian@10.211.55.6
+
+npm-debug.log
+Procfile
+
+public/stylesheets/.sass-cache/
+public/stylesheets/css/
+
+public/js/*-bundle.js

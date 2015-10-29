@@ -1,0 +1,26 @@
+{
+  "name": "Soundcloud Retriever",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-new-router": "^0.5.3",
+    "body-parser": "*",
+    "express": "~4.11.1",
+    "grunt": "^0.4.5",
+    "live-reload": "*",
+    "mongoose": "*",
+    "node-compass": "*",
+    "node-minify": "*",
+    "node-schedule": "^0.2.9",
+    "nunjucks": "~1.2.0",
+    "promise": "^7.0.4",
+    "request": "^2.64.0",
+    "socket.io": "*",
+    "nodemon":"*"
+  },
+  "devDependencies": {}
+}

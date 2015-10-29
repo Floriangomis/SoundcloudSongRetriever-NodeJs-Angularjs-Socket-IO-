@@ -1,0 +1,146 @@
+/*
+*
+*  Menu
+*
+*/
+
+.menu {
+	display: block;
+	width: 250px;
+	z-index: 97;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	border-bottom: 1px solid transparent;
+	transition: background-color .2s,color .2s,border-bottom-color .2s;
+	padding: 10px;
+
+	a {
+		color: inherit;
+
+		&.title {
+			font-size: 148%;
+			border-left: 1px solid rgba(0,0,0,.1);
+			padding-left: 10px;
+			margin-left: 5px;
+			font-family: 'Open Sans',sans-serif;
+			display: inline-block;
+			vertical-align: middle;
+			text-decoration: none;
+			font-weight: bold;
+		}
+	}
+
+	a:visited {
+		color: inherit;
+	}
+	a:hover {
+		color: inherit;
+	}
+
+	span {
+		top: 19px;
+	}
+}
+
+.sidebar {
+	position: fixed;
+	overflow: auto;
+	display: block;
+	background: rgba(34,34,34,.96);
+	color: rgba(255,255,255,.6);
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 250px;
+	font-family: 'Open Sans';
+	padding-top: 100px;
+	font-size: 18px;
+	-webkit-transition: -webkit-transform .5s;
+	-webkit-transform: translateX(-260px);
+	transition: transform .5s;
+	transform: translateX(-260px);
+	z-index: 96;
+
+	nav {
+		border-bottom: 1px solid rgba(255,255,255,.1);
+
+		a {
+			color: white;
+			display: block;
+			padding: 10px 25px;
+			border-top: 1px solid rgba(255,255,255,.1);
+			text-decoration: none;
+		}
+
+		a:visited {
+			color: inherit;
+		}
+		a:hover {
+			transition: all 400ms ease-in-out;
+			color: black;
+			background-color: white;
+		}
+	}
+}
+
+.sidebar-toggle:checked~.menu {
+	a{
+		color: white;
+	}
+}
+
+.sidebar-toggle:checked~.sidebar {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.sidebar-toggle {
+	display: none;
+}
+
+#nav-toggle {
+	cursor: pointer;
+	padding: 10px 35px 16px 0px;
+
+	span:before {
+		top: -10px;
+	}
+
+	span:after {
+		bottom: -10px;
+	}
+
+	span
+	,span:before
+	,span:after {
+		cursor: pointer;
+		border-radius: 1px;
+		height: 5px;
+		width: 35px;
+		background: black;
+		position: absolute;
+		display: block;
+		content: '';
+
+		transition: all 500ms ease-in-out;
+	}
+
+	&.active span {
+		background-color: transparent;
+	}
+
+	&.active span:before {
+		top: 0;
+		background-color: white;
+		transform: rotate(45deg);
+	}
+
+	&.active span:after {
+		top: 0;
+		background-color: white;
+		transform: rotate(-45deg);
+	}
+}
+

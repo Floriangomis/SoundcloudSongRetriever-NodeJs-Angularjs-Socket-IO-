@@ -1,0 +1,46 @@
+/*
+*
+* Articles page
+*
+*/
+@font-face {
+	font-family: cheveuxdange;
+	src: url(../../assets/fonts/cheveuxdange.ttf);
+}
+
+body {
+	a {
+		color: inherit;
+	}
+	a:visited {
+		color: inherit;
+	}
+	a:hover {
+		color: inherit;
+	}
+
+}
+
+.boxArticle {
+	height: 250px;
+	width: 200px;
+
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+
+	float: left;
+};
+
+.artwork {
+	height: 178px;
+
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.infoArticle {
+	font-family: cheveuxdange;
+	text-align: center;
+};
