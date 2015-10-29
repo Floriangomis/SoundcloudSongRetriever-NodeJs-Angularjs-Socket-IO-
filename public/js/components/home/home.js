@@ -7,10 +7,10 @@ angular.module('appControllerHome', [ 'soundcloudService', 'audioPlayerService',
     */
     .controller('HomeController', [ 'soundcloudRetriever', 'audioPlayer', 'playlist', HomeController ] )
     
-    .directive('lastSong', function( audioPlayer, $timeout ) {
+    .directive('lastsSong', function( audioPlayer, $timeout ) {
         return {
             restrict: 'AC',
-            templateUrl: './js/components/home/last-song.html',
+            templateUrl: './js/components/home/lasts-song.html',
             scope: {
                 item: '=itemdata'
             },
