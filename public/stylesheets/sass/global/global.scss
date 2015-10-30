@@ -21,3 +21,7 @@ body {
 	margin-bottom: 40px;
 	position: absolute;
 }
+
+button:focus {
+	outline:0;
+}

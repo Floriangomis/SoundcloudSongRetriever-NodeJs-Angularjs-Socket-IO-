@@ -30,6 +30,18 @@ body {
 	padding-top: 20px;
 
 	float: left;
+
+	// If user pass his mouse over a box song then display play btn
+	&:hover{
+        .play-btn{
+			transition: all 0.5s;
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+
+			visibility: visible;
+            opacity: 1;
+        }
+    }
 };
 
 .artwork {
