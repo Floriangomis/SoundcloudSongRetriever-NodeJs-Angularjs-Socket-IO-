@@ -12,7 +12,7 @@ var audioPlayerService = angular.module( 'playListService', [ 'soundcloudService
 audioPlayerService.service( 'playlist', [ 'soundcloudRetriever', function( soundcloudRetriever ){
 
     var playList = [];
-    var currentSong = 0;
+    this.currentSong = 0;
     
     this.initialize = function(){
         // retrieve Cache.
@@ -26,7 +26,7 @@ audioPlayerService.service( 'playlist', [ 'soundcloudRetriever', function( sound
     this.getSong = function( id ){
         for (var i = 0; i < playList.length; i++) {
             if( playList[i].id === id ){
-                currentSong = i;
+                this.currentSong = i;
                 return playList[i].mp3;
             }
         }
@@ -34,20 +34,20 @@ audioPlayerService.service( 'playlist', [ 'soundcloudRetriever', function( sound
     };
     
     this.getNextSong = function(){
-        if( playList[ currentSong + 1 ] ){
-            currentSong = currentSong + 1;
-            return playList[ currentSong ].mp3
+        if( playList[ this.currentSong + 1 ] ){
+            this.currentSong = this.currentSong + 1;
+            return playList[ this.currentSong ].mp3
         } else {
-            return playList[ currentSong ].mp3
+            return playList[ this.currentSong ].mp3
         }
     };
     
     this.getPrevSong = function(){
-        if( playList[ currentSong - 1 ] ){
-            currentSong = currentSong - 1;
-            return playList[ currentSong ].mp3
+        if( playList[ this.currentSong - 1 ] ){
+            this.currentSong = this.currentSong - 1;
+            return playList[ this.currentSong ].mp3
         } else {
-            return playList[ currentSong ].mp3
+            return playList[ this.currentSong ].mp3
         }
     };
 

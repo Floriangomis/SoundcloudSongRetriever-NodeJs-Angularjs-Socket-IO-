@@ -12,11 +12,12 @@ audioPlayerService.service( 'audioPlayer', function( playlist ){
     
     this.initialize = function(){
         this.player = window.document.getElementsByTagName( 'audio' )[0];
-        this.tracks = null;
 		this.currentTime = 0;
 		this.nextSongBtn = window.document.getElementById( 'player-next' );
 		this.previousSongBtn = window.document.getElementById( 'player-previous' );
         this.replayBtn = window.document.getElementById( 'replay' );
+        this.lastSongElement = null;
+        this.playListElement = null;
 
         playlist.initialize();
 
@@ -32,11 +33,13 @@ audioPlayerService.service( 'audioPlayer', function( playlist ){
         }
 
 		this.player.src = playlist.getNextSong();
+        pauseCurrentSongIcon.call( this, this.playListElement.children[ playlist.currentSong ] );
 		this.player.play();
 	};
-	
+
 	var playPreviousSong = function(){
 		this.player.src = playlist.getPrevSong();
+        pauseCurrentSongIcon.call( this, this.playListElement.children[ playlist.currentSong ] );
 		this.player.play();
 	};
 
@@ -56,17 +59,49 @@ audioPlayerService.service( 'audioPlayer', function( playlist ){
 		this.player.pause();
 	};
 
-    this.playSound = function( id ){
+    var pauseCurrentSongIcon = function( songElement ){
+
+        this.lastSongElement.querySelector( 'span' ).className = "";
+        this.lastSongElement.querySelector( 'span' ).classList.add( 'fa', 'fa-play', 'fa-1x' );
+        this.lastSongElement.querySelector( 'span' ).parentNode.removeAttribute( 'style' );
+
+        songElement.querySelector( 'span' ).className = "";
+        songElement.querySelector( 'span' ).classList.add( 'fa', 'fa-pause', 'fa-1x' );
+        songElement.querySelector( 'span' ).parentNode.style.opacity = 1;
+        songElement.querySelector( 'span' ).parentNode.style.visibility = 'visible';
+
+        this.lastSongElement = songElement;
+    };
+    
+    var resumeCurrentSongIcon = function(){
+        this.lastSongElement.querySelector( 'span' ).className = "";
+        this.lastSongElement.querySelector( 'span' ).classList.add( 'fa', 'fa-play', 'fa-1x' );
+    };
+
+    this.playSound = function( id, songElement ){
+        if( this.playListElement === null ){
+            this.playListElement = songElement.parentElement;
+        }
+
+        if( this.lastSongElement === null ){
+            this.lastSongElement = songElement;
+        }
 		var urlOfTheSong = playlist.getSong( id );
 
         if( this.player.src == urlOfTheSong ){
 			if( this.player.paused ){
+                // Put pause icon on the song clicked
+                pauseCurrentSongIcon.call( this, songElement );
                 resumePlayer.call( this );
 			} else {
+                // Put Resume icon on the song since the click pause the song
+                resumeCurrentSongIcon.call( this );
 				pausePlayer.call( this );
 			}
 		} else {
-			this.player.src = urlOfTheSong;
+            // Put pause icon on the song clicked
+            pauseCurrentSongIcon.call( this, songElement );
+            this.player.src = urlOfTheSong;
             this.player.play();
 		}
     };

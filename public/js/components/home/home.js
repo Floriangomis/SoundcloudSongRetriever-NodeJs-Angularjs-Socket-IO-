@@ -15,10 +15,11 @@ angular.module('appControllerHome', [ 'soundcloudService', 'audioPlayerService',
                 item: '=itemdata'
             },
             link: function( scope, element, attrs ){
+                scope.$parent.fav.element = element;
                 // We bind each directive with audioPlayer
                 element.bind( 'click', function(){
-                    audioPlayer.playSound( scope.$parent.fav.id );
-                }.bind( element ) );
+                    audioPlayer.playSound( scope.$parent.fav.id, scope.$parent.fav.element[0] );
+                } );
 
                 // Use timeout to to execute this function after dom is loaded.
                 $timeout( function(){
