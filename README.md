@@ -19,4 +19,6 @@ Open your terminal then type :
 
 Once it done, You should open `/helper/config.js` and put informations about your soundcloud application account.
 
+Before to launch the project you should use `grunt` in your terminal. This will concat all Js files into a single one and will launch a JShint check.
+
 Then you can launch the application by simply type `nodemon server.js` in your terminal.
