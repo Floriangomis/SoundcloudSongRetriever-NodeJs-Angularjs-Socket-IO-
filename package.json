@@ -20,9 +20,11 @@
     "promise": "^7.0.4",
     "request": "^2.64.0",
     "socket.io": "*",
-    "nodemon":"*",
+    "nodemon": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-watch": "*"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.11.3"
+  }
 }

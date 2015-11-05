@@ -4,7 +4,7 @@
 * It use Javascript Audio Player.
 */
 
-'use strict';
+"use strict";
 
 var audioPlayerService = angular.module( 'audioPlayerService', [ 'playListService' ] );
 
@@ -44,7 +44,7 @@ audioPlayerService.service( 'audioPlayer', function( playlist ){
 	};
 
 	var bindAudioEvent = function(){
-		this.player.onended = playNextSong.bind( this )
+		this.player.onended = playNextSong.bind( this );
 		this.nextSongBtn.addEventListener( 'click', playNextSong.bind( this ) );
 		this.previousSongBtn.addEventListener( 'click', playPreviousSong.bind( this ) );
 	};

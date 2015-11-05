@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -24,12 +25,24 @@ module.exports = function (grunt) {
             }
         },
 
+        jshint:{
+            options: {
+                globalstrict: true,
+                  globals: {
+                    angular: true,
+                    window: true,
+                    io: true
+                  },
+                },
+            all:[ 'public/js/service/*.js', 'public/js/components/*.js', 'public/js/controller/*.js' ]
+        },
+
         watch: {
-            files: 'src/**/*.js',
+            files: 'public/**/*.js',
             tasks: ['concat']
         },
     });
 
-    grunt.registerTask('default', ['concat']);
+    grunt.registerTask( 'default', ['concat', 'jshint', 'watch'] );
 
 };

@@ -26,7 +26,7 @@ soundcloudService.service( 'soundcloudRetriever', [ '$http', '$q', function( $ht
                 deferred.resolve( data );
             } ).error(function(){
                 deferred.reject( 'There was an error' );
-            } )
+            } );
             return deferred.promise;
         }
     };

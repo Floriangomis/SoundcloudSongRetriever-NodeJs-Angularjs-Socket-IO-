@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var module = angular.module( 'appControllers', [ 'appControllerHome', 'appControllerMix', 'ngNewRouter', 'playListService'] );
 

@@ -5,7 +5,7 @@
 * the next, previous song ...
 */
 
-'use strict';
+"use strict";
 
 var audioPlayerService = angular.module( 'playListService', [ 'soundcloudService' ] );
 
@@ -20,7 +20,7 @@ audioPlayerService.service( 'playlist', [ 'soundcloudRetriever', function( sound
         .then( function( data ){
             playList = data;
             bindSocketIo.call( this );
-        })
+        });
     };
 
     this.getSong = function( id ){
@@ -36,18 +36,18 @@ audioPlayerService.service( 'playlist', [ 'soundcloudRetriever', function( sound
     this.getNextSong = function(){
         if( playList[ this.currentSong + 1 ] ){
             this.currentSong = this.currentSong + 1;
-            return playList[ this.currentSong ].mp3
+            return playList[ this.currentSong ].mp3;
         } else {
-            return playList[ this.currentSong ].mp3
+            return playList[ this.currentSong ].mp3;
         }
     };
     
     this.getPrevSong = function(){
         if( playList[ this.currentSong - 1 ] ){
             this.currentSong = this.currentSong - 1;
-            return playList[ this.currentSong ].mp3
+            return playList[ this.currentSong ].mp3;
         } else {
-            return playList[ this.currentSong ].mp3
+            return playList[ this.currentSong ].mp3;
         }
     };
 
