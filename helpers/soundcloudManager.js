@@ -55,7 +55,7 @@ var handleSuccess = function ( result, track, tracks, error, response, body ){
     var sound = { 
         title: result[track].title,
         perma_link: result[track].permalink,
-        artwork: result[track].artwork_url,
+        artwork: result[track].artwork_url ? result[track].artwork_url.replace( 'large', 't500x500') : '',
         uri: result[track].uri,
         id: result[track].id,
         mp3: response.headers['location']
@@ -76,7 +76,7 @@ var handleSuccess = function ( result, track, tracks, error, response, body ){
 };
 
 SoundcloudManager.prototype.getFavorites = function (){
-    this.soundcloudClient.get('/users/florian-gomis/favorites', { limit: 50 }, function(err, result) {
+    this.soundcloudClient.get('/users/florian-gomis/favorites', { limit: 200 }, function(err, result) {
         var tracks = [];
         // We keep a trace of the number of result sent by soundcloud
         tracks[ 'result' ] = result.length;
