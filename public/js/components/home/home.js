@@ -1,25 +1,28 @@
 'use strict';
 
-angular.module('appControllerHome', [ 'soundcloudService', 'audioPlayerService', 'playListService' ] )
+angular.module( 'appControllerHome', [ 'soundcloudService', 'audioPlayerService', 'playListService' ] )
     
     /*
     * Home controller
     */
-    .controller('HomeController', [ 'soundcloudRetriever', 'audioPlayer', 'playlist', HomeController ] )
+    .controller('HomeController', [ 'soundcloudRetriever', 'audioPlayer', 'playlist', '$rootScope', '$location', HomeController ] )
     
     .directive('lastsSong', function( audioPlayer, $timeout ) {
         return {
             restrict: 'AC',
             templateUrl: './js/components/home/lasts-song.html',
             scope: {
-                item: '=itemdata'
+                item: '=itemdata',
+                cat: '=itemcat'
             },
             link: function( scope, element, attrs ){
                 scope.$parent.fav.element = element;
                 // We bind each directive with audioPlayer
-                element.bind( 'click', function(){
-                    audioPlayer.playSound( scope.$parent.fav.id, scope.$parent.fav.element[0] );
-                } );
+                if( scope.cat === 'home' ){
+                    element.bind( 'click', function(){
+                        audioPlayer.playSound( scope.$parent.fav.id, scope.$parent.fav.element[0], scope.item.mp3 );
+                    } );
+                }
 
                 // Use timeout to to execute this function after dom is loaded.
                 $timeout( function(){
@@ -33,15 +36,17 @@ angular.module('appControllerHome', [ 'soundcloudService', 'audioPlayerService',
             }
         };
     });
-    
+
     /*
     * Home constructor
     */
-    function HomeController( soundcloudRetriever, audioPlayer, playlist ) {
+    function HomeController( soundcloudRetriever, audioPlayer, playlist, $rootScope, $location ) {
         this.audioPlayer = audioPlayer;
         this.playlist = playlist;
+        this.location = $location;
         this.initialize();
         this.retrieveFavoritesSong( soundcloudRetriever );
+        console.log( 'Controlleur Home' );
     }
 
     /*
@@ -62,15 +67,4 @@ angular.module('appControllerHome', [ 'soundcloudService', 'audioPlayerService',
         }.bind( this ), function(data){
             console.log( data );
         });
-    };
-    
-    /*
-    * Use to display artwork given by soundcloud or some default picture in case soundcloud doesn't provide one.
-    */
-    HomeController.prototype.getArtwork = function( artwork ) {
-        if( artwork ){
-            return artwork;
-        } else {
-            return 'http://ajournalofmusicalthings.com/wp-content/uploads/no_artwork_available.jpg';
-        }
     };

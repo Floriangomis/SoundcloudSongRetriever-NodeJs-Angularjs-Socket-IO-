@@ -15,11 +15,14 @@ module.exports = function (grunt) {
                     "public/js/service/soundcloudRetriever.js",
                     "public/js/service/audio-player.js",
                     "public/js/service/playlist.js",
+                    "public/js/service/authentification.js",
                     // Controllers
                     "public/js/controller/controller.js",
                     // Components
                     "public/js/components/home/home.js",
-                    "public/js/components/mix/mix.js"
+                    "public/js/components/mp3/mp3.js",
+                    "public/js/components/songs/songs.js",
+                    "public/js/components/login/login.js"
                 ],
                 dest: 'public/min/<%= pkg.name %>.js'
             }

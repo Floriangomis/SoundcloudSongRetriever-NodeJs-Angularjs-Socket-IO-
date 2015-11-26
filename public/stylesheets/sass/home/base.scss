@@ -3,10 +3,10 @@
 * Articles page
 *
 */
-@font-face {
-	font-family: cheveuxdange;
-	src: url(../../assets/fonts/cheveuxdange.ttf);
-}
+// @font-face {
+// 	font-family: cheveuxdange;
+// 	src: url(../../assets/fonts/cheveuxdange.ttf);
+// }
 
 body {
 	a {
@@ -42,17 +42,17 @@ body {
             opacity: 1;
         }
     }
-};
 
-.artwork {
-	height: 178px;
+	.artwork {
+		height: 178px;
 
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+
+	.infoArticle {
+		font-family: cheveuxdange;
+		text-align: center;
+	}
 }
-
-.infoArticle {
-	font-family: cheveuxdange;
-	text-align: center;
-};

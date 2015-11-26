@@ -1,9 +1,22 @@
-<li data-sr="enter bottom, over 2s" class="boxArticle"> 
-	<div class="artwork" style="background-image: url({{ $parent.home.getArtwork( item.artwork ) }});">
+<li ng-show="cat == 'mysongs'" data-sr="enter bottom, over 2s" class="boxArticle">
+	<a href="{{item.mp3}}" style="text-decoration:none;" download>
+		<b>
+			<div class="artwork" style="background-image: url({{ $parent.routeCtrl.getArtwork( item.artwork ) }});">
+			</div>
+		 </b>
+	 </a>
+	 <div class="infoArticle" >
+		 <p>{{ item.title }}</p>
+	</div>
+</li>
+
+<li ng-show="cat == 'home'"  data-sr="enter bottom, over 2s" class="boxArticle">
+	<div class="artwork" style="background-image: url({{ $parent.routeCtrl.getArtwork( item.artwork ) }});">
 		<div class="element-btn">
 			<button class="play-btn"> <span class="fa fa-play fa-1x" style="color: white;"></span> </button>
 		</div>
 	</div>
+
 	<div class="infoArticle" >
 		<p>{{ item.title }}</p>
 	</div>

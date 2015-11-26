@@ -1,0 +1,15 @@
+<div ng-controller="LoginController as auth" style="position: relative; text-align: center;">
+    <h1> Sign in </h1>
+    <form ng-submit="auth.login()">
+        <div>
+            <p>
+                <input type="text" name="email" placeholder="email..." ng-model="auth.email" ></input>
+            </p>
+            <p>
+                <input type="password" name="password" ng-model="auth.password" ></input>
+            </p>
+            <input type="submit" value="Connect" ></input>
+        </div>    
+    </form>
+
+</div>

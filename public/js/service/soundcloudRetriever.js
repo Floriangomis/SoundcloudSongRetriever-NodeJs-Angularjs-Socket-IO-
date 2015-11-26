@@ -9,7 +9,6 @@ var soundcloudService = angular.module('soundcloudService', []);
 
 soundcloudService.service( 'soundcloudRetriever', [ '$http', '$q', function( $http, $q ){
     
-    var baseUrl = '/soundcloudFavorites';
     var cacheFavorites = null;
 
     this.retrieveFavoritesSong = function(){
@@ -20,7 +19,7 @@ soundcloudService.service( 'soundcloudRetriever', [ '$http', '$q', function( $ht
         } else {
             $http( {
                 method: 'GET',
-                url: baseUrl
+                url: '/api/soundcloudFavorites'
             } ).success(function( data ){
                 cacheFavorites = data;
                 deferred.resolve( data );

@@ -11,10 +11,13 @@
 	</a>
 </div>
 
-<aside class="sidebar" ng-controller="RouteController as routeCtrl" >
+<aside class="sidebar">
 	<nav>
-		<a ng-link='/'> Home </a>
-		<a ng-link='mix' > Mix </a>
+		<a ng-link="/" > Home </a>
+		<a ng-link="songs"> Collection </a>
+		<!-- <a ng-link="login" ng-if="!routeCtrl.Auth.isLoggedIn()"> Sign up </a> -->
+		<a ng-link="mp3"> Download Mp3 </a>
+		<!-- <a ng-click="routeCtrl.Auth.logout()" ng-if="routeCtrl.Auth.isLoggedIn()"> Log out</a> -->
 	</nav>
 </aside>
 

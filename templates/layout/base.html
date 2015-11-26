@@ -2,30 +2,35 @@
 <html ng-app="appFront">
 <head>
 	<title> {%- block page_title -%} OTPO {%- endblock -%} </title>
+
+	<!-- set the base path for angular routing -->
+	<base href="/">
+
 	{%- block asset_style -%}
 		<link rel="stylesheet" type="text/css" href="./stylesheets/css/home.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	{%- endblock -%}
 
 </head>
-<body>
+<body ng-controller="RouteController as routeCtrl">
 
 	{%- block menu -%}
 		{% include "components/menu.html" %}
 	{%- endblock -%}
 	
-	<div class='container' ng-controller="RouteController as routeCtrl">
+	<div class='container'>
 
 		<!-- <iframe width="512" height="352" src="http://localhost:8000/present/ukmdxz/embed/" frameborder="0" scrolling="no" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe> -->
 
 		<div ng-viewport></div>
 		
-		<div class="player">
+		<div class="player" >
 			<div id="audioPlayer" style="text-align: center;">
 
 				<a id="player-previous" ><i class="fa fa-step-backward fa-2x" style="color: white; cursor: pointer;"></i></a>
+				<a id="player-play" ><i class="fa fa-play fa-2x" style="color: white; cursor: pointer; margin: 0px 10px 0px 10px;"></i></a>
 
-				<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg">
+				<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg" style="display: none;">
 				    <source type="audio/mp3" src="">
 				    Sorry, your browser does not support HTML5 audio.
 				</audio>

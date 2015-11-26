@@ -1,0 +1,28 @@
+<div style="position: relative;text-align: center;">
+    <h2> Enter the url of one soundcloud to download </h2>
+    <!-- <ul>
+        <li> 
+            <button ng-click="mix.connectTwitter()" > Connect With Twitter </button> 
+            <button ng-show="mix.authentificationService.isLoggedIn" ng-click="mix.logout()"> Log out </button> 
+        </li>
+        <li> 
+            <button ng-click="mix.connectSoundcloud()" > Connect With Soundcloud </button> 
+            <button ng-show="mix.authentificationService.isLoggedIn" ng-click="mix.logout()"> Log out </button> 
+        </li>
+    </ul>
+    <button ng-click="mix.testCallApi()" > Test call api </button> -->
+    <form ng-submit="mp3.retrieveSong()">
+        <input type="text" name="song" ng-model="mp3.song" placeholder="song..." ></input>
+        <input type="submit" value="Retrieve" ></input>
+        <div style="margin-top: 20px;">
+            <a href="{{mp3.downloadBtn}}" class="action-button shadow animate red" ng-show="mp3.downloadBtn" download> Download </a>
+        </div>
+        <div class="spinner" ng-show="mp3.processing">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </form>
+</div>

@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-//mongoose.connect( 'mongodb://localhost/techblog');
 
 var articleSchema = {
 						title : String,
@@ -34,7 +33,6 @@ var getArticle = function( req, res ){
 };
 
 var createArticle = function( req, res ){
-	console.log( req.body );
 	Article.create( {	title: req.body.title,
 						date: req.body.date,
 						author: req.body.author,

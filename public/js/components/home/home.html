@@ -1,6 +1,8 @@
-<div id="containerArticles" class="contentBox">
-	<ul id="playlist" style="list-style: none;" ng-controller="HomeController as home">
-		<a class="lastsSong" ng-repeat="fav in home.favorites" itemdata="fav" style="cursor: pointer;">
-		</a>
-	</ul>
+<div style="position: relative;text-align: center;">
+	<h1> Our Selection </h1>
+	<div id="containerArticles" class="contentBox">
+		<ul id="playlist" style="list-style: none;">
+			<a class="lastsSong" ng-repeat="fav in home.favorites" itemdata="fav" itemcat="'home'" style="cursor: pointer;"></a>
+		</ul>
+	</div>
 </div>

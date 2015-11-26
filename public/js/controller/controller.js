@@ -1,10 +1,10 @@
 "use strict";
 
-var module = angular.module( 'appControllers', [ 'appControllerHome', 'appControllerMix', 'ngNewRouter', 'playListService'] );
+var module = angular.module( 'appControllers', [ 'appControllerHome', 'appControllerMp3', 'appControllerLogin', 'appControllerSongs','ngNewRouter', 'playListService'] );
 
 module.config( ['$componentLoaderProvider', componentLoaderConfig ] );
 
-module.controller( 'RouteController',  [ '$router', RouteController ]);
+module.controller( 'RouteController',  [ '$router', 'Auth', RouteController ]);
 
 // Lower case string
 function dashCase( str ) {
@@ -22,12 +22,30 @@ function componentLoaderConfig( $componentLoaderProvider ) {
      });
 }
 
-function RouteController ( $router ) {
+function RouteController ( $router, Auth ) {
     $router.config([
-      { path: '/', component: 'home' },
-      { path: '/mix', component: 'mix' }
+        { path: '/', component: 'home' },
+        // { path: '/login', component: 'login' },
+        { path: '/songs', component: 'songs' },
+        { path: '/mp3', component: 'mp3' }
     ]);
+    this.Auth = Auth;
 }
+
+/*
+* Use to display artwork given by soundcloud or some default picture in case soundcloud doesn't provide one.
+*/
+RouteController.prototype.getArtwork = function( artwork ) {
+    if( artwork ){
+        return artwork;
+    } else {
+        return 'http://ajournalofmusicalthings.com/wp-content/uploads/no_artwork_available.jpg';
+    }
+};
+
+RouteController.prototype.logout = function(){
+    this.Auth.logout();
+};
 
 module.controller( 'playerController',  [ 'playlist', PlayerController ]);
 

@@ -1,9 +1,18 @@
 .player {
     z-index: 97;
-    width: 100%;
+    width: 400px;
     height: 68px;
     background: rgba(34,34,34,.96);
     position: fixed;
     bottom: 0;
     right: 0;
+    bottom: 0px;
+    // bottom: -68px;
+    // transition: 2s;
+    border-radius: 10px 0px 0px 0px;
+
+    // &.playing{
+    //     transition: 2s;
+    //     bottom: 0px;
+    // }
 }
