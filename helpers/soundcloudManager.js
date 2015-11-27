@@ -24,7 +24,7 @@ SoundcloudManager.prototype.initialize = function(){
     this.client = this.sc.client();
     this.client.exchange_token( function( err, token ) {
         if( err ){
-            console.log( 'Erreur exchange_token : ' err );
+            console.log( 'Erreur exchange_token : ' + err );
         }
         this.soundcloudClient = this.sc.client( { access_token : token } );
         this.getFavorites.call( this );
