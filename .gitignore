@@ -7,7 +7,8 @@ florian@10.211.55.6
 npm-debug.log
 Procfile
 
+public/stylesheets/css
 public/stylesheets/.sass-cache/
-public/stylesheets/css/
+.sass-cache/
 
 public/js/*-bundle.js

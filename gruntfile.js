@@ -2,6 +2,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -40,12 +41,23 @@ module.exports = function (grunt) {
             all:[ 'public/js/service/*.js', 'public/js/components/*.js', 'public/js/controller/*.js' ]
         },
 
+        sass: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: './public/stylesheets/sass',
+                    src: ['./**/*.scss'],
+                    dest: './public/stylesheets/css',
+                    ext: '.css'
+                }]
+            }
+        },
+
         watch: {
-            files: 'public/**/*.js',
-            tasks: ['concat']
+            files: [ 'public/**/*.js', 'public/**/*.scss' ],
+            tasks: [ 'concat', 'sass' ]
         },
     });
 
-    grunt.registerTask( 'default', ['concat', 'jshint', 'watch'] );
-
+    grunt.registerTask( 'default', [ 'concat', 'jshint', 'sass', 'watch' ] );
 };

@@ -20,7 +20,6 @@ var io = require('socket.io')( server );
 var nunjucks = require( 'nunjucks' );
 var path = require( 'path' );
 var bodyParser = require('body-parser');
-var compass = require('node-compass');
 
 // Soundcloud Manager
 var sc = require('./helpers/soundcloudManager');
@@ -66,15 +65,6 @@ app.use( session( {
 		);
 app.use( passport.initialize() );
 app.use( passport.session() );
-
-app.use( compass( {
-		project : './public/stylesheets',
-		sass : 'sass',
-		css : 'css',
-		logging : true,
-		cache: true
-	} )
-);
 
 app.use( '/api', router );
 
