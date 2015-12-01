@@ -25,18 +25,18 @@
 		<div ng-viewport></div>
 		
 		<div class="player" >
-			<div id="audioPlayer" style="text-align: center;">
+			<div id="audioPlayer" class="audio-player">
 
-				<a id="player-previous" ><i class="fa fa-step-backward fa-2x" style="color: white; cursor: pointer;"></i></a>
-				<a id="player-play" ><i class="fa fa-play fa-2x" style="color: white; cursor: pointer; margin: 0px 10px 0px 10px;"></i></a>
+				<div class="player-controls" >
+					<a id="player-previous" ><i class="fa fa-step-backward fa-2x" ></i></a>
+					<a id="player-play" ><i class="fa fa-play fa-2x" ></i></i></a>
+					<a id="player-next" ><i class="fa fa-step-forward fa-2x" ></i></a>
+				</div>
 
 				<audio id="audio" preload="auto" tabindex="0" controls="" type="audio/mpeg" style="display: none;">
 				    <source type="audio/mp3" src="">
 				    Sorry, your browser does not support HTML5 audio.
 				</audio>
-
-				<a id="player-next" ><i class="fa fa-step-forward fa-2x" style="color: white; cursor: pointer;"></i></a>
-
 			</div>
 			<div style="text-align: center;">
 				<input	type="checkbox" id="replay"></input> <b style="color:white;"> Replay </b>

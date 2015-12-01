@@ -16,3 +16,16 @@
     //     bottom: 0px;
     // }
 }
+
+.audio-player {
+    text-align: center;
+    padding: 10px 0px 0px 0px;
+
+    .player-controls {
+        color: white; cursor: pointer;
+
+        .fa-play {
+            margin: 0px 10px 0px 10px;
+        }
+    }
+}
